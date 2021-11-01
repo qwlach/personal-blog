@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack serve",
-    "server": "node server.js"
+    "server": "node ./server/server.js"
   },
   "repository": {
     "type": "git",
@@ -57,11 +57,7 @@
     "webpack-dev-middleware": "^5.2.1",
     "webpack-dev-server": "^4.4.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
+  "pre-commit": "lint-staged",
   "lint-staged": {
     "*.{js,jsx,mjs,ts,tsx}": [
       "node_modules/.bin/prettier --write",

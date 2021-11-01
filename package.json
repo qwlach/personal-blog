@@ -36,6 +36,9 @@
 		"clean-webpack-plugin": "^4.0.0",
 		"css-loader": "^6.5.0",
 		"eslint": "^8.1.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-react": "^7.26.1",
 		"express": "^4.17.1",
 		"friendly-errors-webpack-plugin": "^1.7.0",
 		"html-webpack-plugin": "^5.5.0",
@@ -54,7 +57,16 @@
 		"webpack-dev-middleware": "^5.2.1",
 		"webpack-dev-server": "^4.4.0"
 	},
-	"hooks": {
-		"pre-commit": "lint"
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"eslint --fix --ext .js,.tsx,.jsx,.ts, ./src": [
+			"eslint",
+			"eslint --fix --format=pretty",
+			"get add"
+		]
 	}
 }

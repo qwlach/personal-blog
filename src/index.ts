@@ -11,3 +11,7 @@
 var myName = 'Tom';
 
 type Foo = {};
+
+function a() {
+  console.log(1111);
+}

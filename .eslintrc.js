@@ -9,13 +9,6 @@ module.exports = {
     "airbnb",
     "plugin:prettier/recommended"
   ],
-  // 自定义全局变量
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly",
-    "_": true,
-    "$": true,
-  },
   // ESLint 默认使用Espree作为其解析器，你可以在配置文件中指定一个不同的解析器
   // "parser": "@typescript-eslint/parser",
   // 配置解析器支持的语法
@@ -37,6 +30,25 @@ module.exports = {
   // "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出)
   // "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
   "rules": {
-    "max-len": [2, 10, { "ignoreUrls": true }],
+    // 禁止 function 定义中出现重名参数
+    "no-dupe-args": 2,
+    // 禁止对象字面量中出现重复的 key
+    "no-dupe-keys": 2,
+    // 禁止空语句块
+    "no-empty": 1,
+    "brace-style": [2, "1tbs", {
+      "allowSingleLine": true
+    }],
+    // 强制一行的最大长度
+    "max-len": [1, 300, { "ignoreUrls": true }],
+    //禁止空格和 tab 的混合缩进
+    "no-mixed-spaces-and-tabs": [
+      "error", "smart-tabs"
+    ],
+    "react/prop-types": "off",
+    "no-extra-boolean-cast": "off",
+    "react/display-name": "off",
+    "no-empty-pattern": 1,
+    "no-unused-vars": 1,
   }
 };

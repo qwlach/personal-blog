@@ -1,10 +1,13 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+// import * as React from 'react';
+// import * as ReactDOM from 'react-dom';
 
-import './index.css';
+// import './index.css';
 
-const App = () => {
-  return <div>11111111111111111111111111111111111111111111111111111</div>;
-};
+// const App = () => {
+//   return <div>11111111111111111111111111111111111111111111111111111</div>;
+// };
 
-ReactDOM.render(<App />, document.getElementById('root'))
+// ReactDOM.render(<App />, document.getElementById('root'))
+var myName = 'Tom';
+
+type Foo = {};

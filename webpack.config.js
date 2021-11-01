@@ -6,7 +6,7 @@ const notifier = require('node-notifier');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, './src/index.ts'),
+  entry: path.resolve(__dirname, './src/index.tsx'),
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].[chunkhash].js',
@@ -15,46 +15,50 @@ module.exports = {
   devtool: 'inline-source-map',
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: ['.ts', '.tsx', '.js', '.json']
   },
   module: {
     rules: [
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource',
+        type: 'asset/resource'
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        type: 'asset/inline',
+        type: 'asset/inline'
       },
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /\.(scss|css)$/,
-        use: ['style-loader', {
+        use: [
+          'style-loader',
+          {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
-            },
-          }, 'postcss-loader'],
-      },
-    ],
+              importLoaders: 1
+            }
+          },
+          'postcss-loader'
+        ]
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Qwl个人博客',
       template: path.resolve(__dirname, './public/index.html'),
       filename: 'index.html',
-      inject: 'body',
+      inject: 'body'
     }),
     new CleanWebpackPlugin(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
-          messages: ['hello'],
-          notes: ['项目启动了呀']
+        messages: ['hello'],
+        notes: ['项目启动了呀']
       },
       onErrors: (severity, errors) => {
         if (severity !== 'error') {
@@ -62,15 +66,15 @@ module.exports = {
         }
         const error = errors[0];
         notifier.notify({
-          title: "Webpack error",
+          title: 'Webpack error',
           message: severity + ': ' + error.name,
-          subtitle: error.file || '',
+          subtitle: error.file || ''
         });
       },
       // 每次编译时都清空控制台么？
       // 默认：true
       clearConsole: true,
-  
+
       // 添加格式化方法和转换方法(如下)
       additionalFormatters: [],
       additionalTransformers: []
@@ -80,6 +84,6 @@ module.exports = {
     historyApiFallback: true,
     open: false,
     hot: true,
-    port: 8082,
-  },
-}
+    port: 8082
+  }
+};

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack serve",
-    "server": "node ./server/server.js"
+    "server": "node ./server/server.js",
+    "lint": "eslint --ext .ts --ext .tsx"
   },
   "repository": {
     "type": "git",
@@ -57,16 +58,5 @@
     "webpack-dev-middleware": "^5.2.1",
     "webpack-dev-server": "^4.4.0"
   },
-  "pre-commit": "lint-staged",
-  "lint-staged": {
-    "*.{js,jsx,mjs,ts,tsx}": [
-      "node_modules/.bin/prettier --write",
-      "node_modules/.bin/eslint --fix",
-      "git add"
-    ],
-    "*.{css,scss,less,json,html,md,markdown}": [
-      "node_modules/.bin/prettier --write",
-      "git add"
-    ]
-  }
+  "pre-commit": "lint"
 }

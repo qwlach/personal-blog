@@ -6,7 +6,7 @@ const notifier = require('node-notifier');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, './index.tsx'),
+  entry: path.resolve(__dirname, './src/index.ts'),
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].[chunkhash].js',

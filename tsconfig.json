@@ -8,7 +8,7 @@
     "preserveConstEnums": true,  // 保留 const 和 enum 声明
     "sourceMap": true            // 生成目标文件的sourceMap文件
   },
-  "files": [   // 指定待编译文件
-    "index.tsx"  
+  "include": [
+    "src"
   ]
 }

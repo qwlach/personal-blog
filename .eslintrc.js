@@ -7,10 +7,11 @@ module.exports = {
   // 一个配置文件可以被基础配置中的已启用的规则继承。
   "extends": [
     "airbnb",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    'plugin:@typescript-eslint/recommended'
   ],
   // ESLint 默认使用Espree作为其解析器，你可以在配置文件中指定一个不同的解析器
-  // "parser": "@typescript-eslint/parser",
+  "parser": "@typescript-eslint/parser",
   // 配置解析器支持的语法
   "parserOptions": {
     "ecmaFeatures": {
@@ -23,7 +24,7 @@ module.exports = {
   // 在配置文件里配置插件时，可以使用 plugins 关键字来存放插件名字的列表。插件名称可以省略 eslint-plugin- 前缀。
   "plugins": [
     "react",
-    "@typescript-eslint"
+    "@typescript-eslint",
   ],
   // ESLint 附带有大量的规则。你可以使用注释或配置文件修改你项目中要使用的规则。要改变一个规则设置，你必须将规则 ID 设置为下列值之一：
   // "off" 或 0 - 关闭规则
